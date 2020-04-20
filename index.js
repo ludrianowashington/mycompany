@@ -7,7 +7,6 @@ window.onload = initialization();
  */
 
 function initialization() {
-  newMain();
   changeValue();
   handleClick();
 }
@@ -31,15 +30,9 @@ function changeValue() {
   setTotalCash(value);
 }
 
-function newMain() {
-  let newMain = document.getElementById("main");
-
-  // Criar uma caixa para adição de itens
-  let component = document.createElement("div");
-  component.id = "box-content";
-  component.className = "box-container";
-  newMain.appendChild(component);
-}
+/**
+ *  Função que manipula evento de 'click' no menu
+ */
 
 function handleClick() {
   const purchasing = document.querySelector("#purchasing");
@@ -49,40 +42,76 @@ function handleClick() {
   const automation = document.querySelector("#automation");
   const data = document.querySelector("#data");
 
-  purchasing.addEventListener("click", message1);
-  manufacturing.addEventListener("click", message2);
-  inventory.addEventListener("click", message3);
-  sales.addEventListener("click", message4);
-  automation.addEventListener("click", message5);
-  data.addEventListener("click", message6);
+  purchasing.addEventListener("click", setPurchansing, false);
+  manufacturing.addEventListener("click", message2, false);
+  inventory.addEventListener("click", message3, false);
+  sales.addEventListener("click", message4, false);
+  automation.addEventListener("click", message5, false);
+  data.addEventListener("click", message6, false);
 }
 
-function message1() {
+/**
+ *  Cria um novo elemento 'div'
+ */
+
+function newMain(color) {
+  let newMain = document.getElementById("main");
+
+  if (!newMain.hasChildNodes()) {
+    // Criar uma caixa para adição de itens
+    let component = document.createElement("div");
+    component.id = "box-content";
+    component.className = "box-container";
+
+    component.style.backgroundColor = color;
+    newMain.appendChild(component);
+  }
+
+  if (newMain.hasChildNodes()) {
+    let comp = document.querySelector("#box-content");
+    comp.style.backgroundColor = color;
+  }
+}
+
+function setPurchansing(ev) {
+  newMain("#9fd6d6");
   const msg = document.querySelector(".box-container");
 
   msg.innerHTML = "Compra";
 }
-function message2() {
+function message2(ev) {
+  newMain("#a442d6");
   const msg = document.querySelector(".box-container");
 
   msg.innerHTML = "Fabricaçao";
 }
-function message3() {
+function message3(ev) {
+  const color = "#8d30f5";
+  newMain();
+  newMain("#9fd556");
   const msg = document.querySelector(".box-container");
 
   msg.innerHTML = "Inventário";
 }
-function message4() {
+function message4(ev) {
+  const color = "#8d30f5";
+  newMain();
+  newMain("#9f7886");
   const msg = document.querySelector(".box-container");
 
   msg.innerHTML = "Vendas";
 }
-function message5() {
+function message5(ev) {
+  const color = "#8d30f5";
+  newMain();
+  newMain("#9fdda6");
   const msg = document.querySelector(".box-container");
 
   msg.innerHTML = "Automação";
 }
-function message6() {
+function message6(ev) {
+  const color = "#8d30f5";
+  newMain();
   const msg = document.querySelector(".box-container");
 
   msg.innerHTML = "Dados";
