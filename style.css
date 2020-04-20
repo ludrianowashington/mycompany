@@ -196,3 +196,14 @@ html, body {
 .footer p a:hover {
   color: #ffffff;
 }
+
+
+
+
+.reveal{
+  display: inline;
+}
+
+.disappear{
+  display: none;
+}
