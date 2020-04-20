@@ -9,7 +9,7 @@ A proposta da atual versão é demonstrar uma boa funcionalidade pela construç�
 
 ## Instalação
 
-Caso queira ver este projeto em funcionamento, [clique aqui](ludrianowashington.github.io/myfactory).
+Caso queira ver este projeto em funcionamento, [clique aqui](http://ludrianowashington.github.io/myfactory).
 
 ## Funcionamento
 
