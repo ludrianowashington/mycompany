@@ -1,118 +1,92 @@
-// Iniciando quando a janela é carregada
+const menu = [];
 
-window.onload = initialization();
+function init() {
+  let links = document.querySelectorAll(".link");
+  links.forEach(function (item) {
+    menu.push(item.id);
+  });
+  viewContainer("Clique no menu para visualisar");
 
-/**
- *  Função que carrega o necessário para a apliação
- */
-
-function initialization() {
   changeValue();
-  handleClick();
 }
-
-/**
- *  Função que atualiza o Valor Total em Caixa
- */
-
-function setTotalCash(value) {
-  let totalCash = document.getElementById("cash");
-  return (totalCash.innerText = value);
-}
-
-/**
- *  Função que inicializa Valor Total em caixa
- */
 
 function changeValue() {
   let value = "100,00";
 
-  setTotalCash(value);
+  updateTotalCash(value);
 }
 
-/**
- *  Função que manipula evento de 'click' no menu
- */
-
-function handleClick() {
-  const purchasing = document.querySelector("#purchasing");
-  const manufacturing = document.querySelector("#manufacturing");
-  const inventory = document.querySelector("#inventory");
-  const sales = document.querySelector("#sales");
-  const automation = document.querySelector("#automation");
-  const data = document.querySelector("#data");
-
-  purchasing.addEventListener("click", setPurchansing, false);
-  manufacturing.addEventListener("click", message2, false);
-  inventory.addEventListener("click", message3, false);
-  sales.addEventListener("click", message4, false);
-  automation.addEventListener("click", message5, false);
-  data.addEventListener("click", message6, false);
+function updateTotalCash(value) {
+  let totalCash = document.getElementById("cash");
+  console.log(totalCash.textContent);
+  return (totalCash.innerText = value);
 }
 
-/**
- *  Cria um novo elemento 'div'
- */
-
-function newMain(color) {
-  let newMain = document.getElementById("main");
-
-  if (!newMain.hasChildNodes()) {
-    // Criar uma caixa para adição de itens
-    let component = document.createElement("div");
-    component.id = "box-content";
-    component.className = "box-container";
-
-    component.style.backgroundColor = color;
-    newMain.appendChild(component);
+function handleClick(ev) {
+  let main = document.querySelector(".main");
+  if (menu.includes(ev.srcElement.id) === false) {
+    if (main.hasChildNodes() && main.childNodes[0].id !== ev.srcElement.id) {
+      main.removeChild(main.childNodes[0]);
+      // console.log(main.childNodes[0].id);
+      // console.log(ev.srcElement.id);
+      viewContainer("Clicou fora!! Clique no menu para visualisar");
+      return;
+    }
   }
 
-  if (newMain.hasChildNodes()) {
-    let comp = document.querySelector("#box-content");
-    comp.style.backgroundColor = color;
+  let txt;
+  switch (ev.srcElement.id) {
+    case "purchasing":
+      // console.log("Compra");
+      txt = "Compra";
+      viewContainer(txt);
+      break;
+    case "manufacturing":
+      // console.log("Fabricação");
+      txt = "Fabricação";
+      viewContainer(txt);
+      break;
+    case "inventory":
+      // console.log("Inventário");
+      txt = "Inventário";
+      viewContainer(txt);
+      break;
+    case "sales":
+      // console.log("Vendas");
+      txt = "Vendas";
+      viewContainer(txt);
+      break;
+    case "automation":
+      // console.log("Automação");
+      txt = "Automação";
+      viewContainer(txt);
+      break;
+    case "data":
+      // console.log("Dados");
+      txt = "Dados";
+      viewContainer(txt);
   }
 }
 
-function setPurchansing(ev) {
-  newMain("#9fd6d6");
-  const msg = document.querySelector(".box-container");
+function viewContainer(txt) {
+  let main = document.querySelector(".main");
 
-  msg.innerHTML = "Compra";
-}
-function message2(ev) {
-  newMain("#a442d6");
-  const msg = document.querySelector(".box-container");
+  let viewContainer = document.createElement("div");
+  viewContainer.setAttribute("class", "viewContainer");
+  viewContainer.setAttribute("id", "viewContainer");
 
-  msg.innerHTML = "Fabricaçao";
-}
-function message3(ev) {
-  const color = "#8d30f5";
-  newMain();
-  newMain("#9fd556");
-  const msg = document.querySelector(".box-container");
+  let textNode = document.createTextNode(txt);
 
-  msg.innerHTML = "Inventário";
-}
-function message4(ev) {
-  const color = "#8d30f5";
-  newMain();
-  newMain("#9f7886");
-  const msg = document.querySelector(".box-container");
+  if (main.hasChildNodes()) {
+    main.removeChild(main.childNodes[0]);
+    main.appendChild(viewContainer).appendChild(textNode);
+  } else {
+    main.appendChild(viewContainer).appendChild(textNode);
+  }
 
-  msg.innerHTML = "Vendas";
+  // console.log(main.hasChildNodes());
 }
-function message5(ev) {
-  const color = "#8d30f5";
-  newMain();
-  newMain("#9fdda6");
-  const msg = document.querySelector(".box-container");
 
-  msg.innerHTML = "Automação";
-}
-function message6(ev) {
-  const color = "#8d30f5";
-  newMain();
-  const msg = document.querySelector(".box-container");
+document.addEventListener("click", (ev) => handleClick(ev));
 
-  msg.innerHTML = "Dados";
-}
+window.onload = init();

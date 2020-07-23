@@ -34,6 +34,9 @@ No momento este projeto está totalmente **estático** e, portanto, não será n
   * [HTML5]()
   * [CSS3]()
   * [Javascript]()
+  <!-- E, mais recente, inseri a versão com...
+
+  * [ReactJs]() -->
   
 ## Licença
 
