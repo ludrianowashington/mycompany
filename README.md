@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/tela1.png" width="800px"/><br>
+</p>
+
 # My Factory
 _Um simulador de fabrica baseado no jogo **'The Factory'** disponível na Google Play Story_
 
