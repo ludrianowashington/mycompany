@@ -66,6 +66,8 @@ function handleClick(ev) {
       // console.log("Dados");
       txt = "Dados";
       viewContainer(txt);
+      break;
+    default: break;
   }
 }
 
