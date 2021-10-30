@@ -1,45 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>The Builder</title>
+  <title>BUILDLY</title>
 </head>
 <body>
   <div id="container" >
-    <header class="head">
-      <div class="menu-top">
-        <div class="logo">The Builder</div>
-        <div class="cash" id="totalCash">
-          <span id="coin">R$</span>
-          <span id="cash"></span>
-        </div>
-
-      </div>
-      
-      <div class="menu-links">
-        <nav class="links">
-          <ul>
-            <li class="link" id="purchasing">Compra</li>
-            <li class="link" id="manufacturing">Fabricaçao</li>
-            <li class="link" id="inventory">Inventário</li>
-            <li class="link" id="sales">Vendas</li>
-            <li class="link" id="automation">Automação</li>
-            <li class="link" id="data">Dados</li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <div class="main" id="main">
+    <div class="sidebar">
+      <span class="logo"><span>//</span> BUILDLY</span>
+      <ul class="links">
+        <li class="link" id="purchasing">Compra</li>
+        <li class="link" id="manufacturing">Fabricaçao</li>
+        <li class="link" id="inventory">Inventário</li>
+        <li class="link" id="sales">Vendas</li>
+        <li class="link" id="automation">Automação</li>
+        <li class="link" id="data">Dados</li>
+      </ul>
     </div>
+    <div class="head">
+      <input type="search" class="search" placeholder="Pesquisa"/>
+      <div class="cash" id="totalCash">
+        <span id="coin">R$</span>
+        <span id="cash"></span>
+      </div>
+    </div>
+    <!-- <div class="main" id="main">
+    </div> -->
 
-    <div class="footer">
+    <!-- <div class="footer">
       <p>Este projeto foi adaptado por <a href="https://ludrianowashington.github.io" target="_blank">Ludriano Washington</a></p>
-    </div>
+    </div> -->
 
   </div>
-  <script src="index.js" async></script>
+  <script type="module" src="index.js" async></script>
 </body>
 </html>
