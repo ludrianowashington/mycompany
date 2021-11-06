@@ -1,4 +1,4 @@
-import { products } from "./modules/products";
+import {products} from "./modules/products";
 
 const menu = [];
 
@@ -7,7 +7,7 @@ function init() {
   links.forEach(function (item) {
     menu.push(item.id);
   });
-  //viewContainer("Clique no menu para visualisar");
+  viewContainer("Clique no menu para visualisar");
 
   changeValue();
 }
@@ -29,8 +29,8 @@ function handleClick(ev) {
   if (menu.includes(ev.srcElement.id) === false) {
     if (main.hasChildNodes() && main.childNodes[0].id !== ev.srcElement.id) {
       main.removeChild(main.childNodes[0]);
-      // console.log(main.childNodes[0].id);
-      // console.log(ev.srcElement.id);
+       console.log(main.childNodes[0].id);
+       console.log(ev.srcElement.id);
       viewContainer();
       return;
     }
@@ -194,4 +194,4 @@ function getRequeriments(name, count = 1) {
 
 document.addEventListener("click", (ev) => handleClick(ev));
 
-window.onload = init();
+document.onload = init();
