@@ -1,4 +1,4 @@
-export let products = {
+export const products = {
   carboard: {
     sell: 0.18,
     buy: 0.24,
